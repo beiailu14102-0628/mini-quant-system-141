@@ -1,0 +1,24 @@
+import twstock
+stock = twstock.Stock('2344')
+prices= stock.price
+print("華邦電最近5個交易日的價格：")
+print(prices[-5:])
+data = stock.fetch_31()
+for day in data[-5:]:
+	   print(f"日期: {day.date},收盤價：{day.close}")
+realtime_data = twstock.realtime.get('2344')
+if realtime_data['success']:
+    real_info = realtime_data['realtime']
+    info = realtime_data['info']
+    real_info['latest_trade_price']
+    name = info['name']
+    price = real_info['latest_trade_price']
+    high = real_info['high']
+    low = real_info['low']
+    volume = real_info['accumulate_trade_volume']
+print("-" * 30)
+print(f"股票名稱: {name}({info['code']})")
+print(f"最新成交價: {price}")
+print(f"今日最高: {high} | 今日最低: {low}")
+print(f"累計成交量: {volume}")
+print("-" * 30)
